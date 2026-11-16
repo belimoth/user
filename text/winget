@@ -1,0 +1,194 @@
+7zip
+aldanial
+amazon
+atlassian
+autohotkey
+axosoft
+box
+bruno
+canonical
+discord
+dropbox
+git
+gitea
+github
+glab
+gnu
+golang
+google
+guinpinsoft
+gyan
+hex-rays
+httptoolkit
+jernejsimoncic
+johnmacfarlane
+kitware
+kronosgroup
+lightninguk
+llvm
+microsoft
+millerpuckette
+moritzbunkus
+mozilla
+msys2
+ngrok
+nilesoft
+notepad++
+obsproject
+odin-lang
+openjs
+postman
+putty
+rarlab
+rustlang
+slacktechnologies
+sqlite
+sublimehq
+unity
+valve
+videolan
+voidtools
+wiresharkfoundation
+yoyogames
+yubico
+zig
+zoom
+
+# media
+
+audacity.audacity
+guinpinsoft.makemkv
+moritzbunkus.mkvtoolnix
+
+# browse
+
+google.chrome
+microsoft.edge
+mozilla.firefox
+
+# chat
+
+discord.discord
+microsoft.teams
+slacktechnologies.slack
+zoom.zoom
+
+# cloud
+
+box.box
+dropbox.dropbox
+google.googldrive
+microsoft.onedrive
+
+# code
+
+kitware.cmake
+
+# code - audio
+
+millerpuckette.puredata
+
+# code - lang
+
+golang.go
+odin-lang.odin
+openjs.nodejs
+python.python.3.14
+rustlang.rustup
+zig.zig
+
+# dependencies
+
+microsoft.vcredist.2010.x64
+msys2.msys2
+
+# development
+
+bruno.bruno
+httptoolkit.httptoolkit
+postman.postman
+
+# distribution
+
+microsoft.appinstaller
+
+# edit
+
+google.androidstudio
+microsoft.visualstudio.community
+microsoft.visualstudiocode
+notepad++.notepad++
+sublimehq.sublimetext.4
+
+# game launchers
+
+valve.steam
+
+# hub
+
+gitea.tea
+github.cli
+github.githubdesktop
+glab.glab
+
+# stream
+
+obsproject.obsstudio
+
+# terminal
+
+microsoft.powershell
+microsoft.windowsterminal
+
+# texture
+
+microsoft.directxtex.texconv
+
+# utilities
+
+7zip.7zip
+autohotkey.autohotkey
+git.git
+git.mingit
+gyan.ffmpeg
+johnmacfarlane.pandoc
+ngrok.ngrok
+nilesoft.shell
+rarlab.winrar
+videolan.vlc
+voidtools.everything
+
+# utilities - admin
+
+amazon.awscli
+microsoft.sysinternals.suite
+putty.putty
+wiresharkfoundation.wireshark
+
+# utilities - reverse engineering
+
+hex-rays.ida.free
+
+# inbox
+
+aldanial.cloc
+axosoft.gitkraken
+canonical.ubuntu
+git.gcm
+gnu.wget2
+jernejsimoncic.wget
+khronosgroup.vulkanrt
+khronosgroup.vulkansdk
+lightninguk.imgburn
+llvm.llvm
+microsoft.powertoys
+microsoft.visualstudiocode.cli
+qbittorrent.qbittorrent
+sqlite.sqlite
+tortoisegit.tortoisegit
+tortoisesvn.tortoisesvn
+unity.cli
+unity.unityhub
+yoyogames.gamemaker.studio.2
+yubico.yubikeymanagercli
+itchio.itch
