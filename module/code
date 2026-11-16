@@ -127,7 +127,7 @@ function code_pull {
 
 	cd $repo
 
-	# [[ -f ./user/profile/$USER/pull ]] && bash ./user/profile # todo check functions for remote instead
+	# [[ -f ./user/profile/$user/pull ]] && bash ./user/profile # todo check functions for remote instead
 }
 
 function code_push_new {

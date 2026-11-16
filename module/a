@@ -10,10 +10,10 @@ MSYS_NO_PATHCONV=1 subst /d a: | true && subst a: .
 history -c
 HISTFILE=/a/null/.bash_history
 
-PATH=$PATH:/a/user
+path /a/user
 
-[[ -z $USER ]] && [[ -f /a/user/profile/$USER      ]] && source /a/user/profile/$USER
-[[ -z $USER ]] && [[ -d /a/user/profile/$USER      ]] && export PATH=$PATH:/a/user/profile/$USER
-[[ -z $USER ]] && [[ -f /a/user/profile/$USER/init ]] && source /a/user/profile/$USER/init
+[[ -z $user ]] && [[ -f /a/user/profile/$user      ]] && source /a/user/profile/$user
+[[ -z $user ]] && [[ -d /a/user/profile/$user      ]] && path   /a/user/profile/$user
+[[ -z $user ]] && [[ -f /a/user/profile/$user/init ]] && source /a/user/profile/$user/init
 
 return 0

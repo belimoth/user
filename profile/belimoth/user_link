@@ -10,3 +10,7 @@ ln --force ~/desktop/user/profile/belimoth/home/.gitconfig    ~/.gitconfig
 
 ln --force ~/desktop/user/profile/belimoth/vscode/keybindings.json ~/appdata/roaming/code/user/keybindings.json
 ln --force ~/desktop/user/profile/belimoth/vscode/settings.json    ~/appdata/roaming/code/user/settings.json
+
+ln --symbolic "$USERPROFILE\appdata\roaming\microsoft\windows\start menu" ~/appdata/roaming/microsoft/windows/start
+
+ln --force ~/desktop/user/profile/belimoth/user.ahk ~/appdata/roaming/microsoft/windows/start/programs/startup/user.ahk

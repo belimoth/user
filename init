@@ -5,8 +5,12 @@ set -o allexport
 alias md="mkdir --parents"
 alias pass=":"
 
-PATH=$PATH:~/desktop/user/profile/$USER
-PATH=$PATH:~/desktop/user
+function path {
+	export PATH=$1:$PATH
+}
+
+path ~/desktop/user/profile/$user
+path ~/desktop/user
 
 function err {
 	echo error: $@
@@ -22,7 +26,7 @@ function use {
 
 	local -; set -o allexport
 
-	[[ -d ~/desktop/user/package/$1 ]] && PATH=$PATH:~/desktop/user/package/$1
+	[[ -d ~/desktop/user/package/$1 ]] && path ~/desktop/user/package/$1
 
 	[[ $( type -t use_$1 ) == function ]] && {
 		eval "use_$1"

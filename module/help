@@ -5,11 +5,15 @@ function help_bash {
 }
 
 function help_bash_shell {
-	bash -c "help set"
+	help set
 }
 
 function help_bash_builtins {
-	bash -c "help"
+	help
+}
+
+function help_bash_variables {
+	help variables
 }
 
 function help_git {
@@ -32,3 +36,57 @@ function help_user {
 	echo "code_pull <slug>"
 	echo "code_push <slug>"
 }
+
+function help_list_alias {
+	compgen -a
+}
+
+function help_list_builtin {
+	compgen -b
+}
+
+function help_list_executable {
+	# compgen -c
+	comm -23 <(compgen -c | sort -u) <(compgen -abk | sort -u) | sed "/\.dll/d" | sed "/\.dll/d"
+}
+
+function help_list_bin {
+	ls /usr/bin | sed "/\.dll/d"
+}
+
+
+function help_list_keyword {
+	compgen -k
+}
+
+function help_list_function {
+	 compgen -A function
+}
+
+function help_list_set {
+	compgen -v
+}
+
+function help_list_set_export {
+	compgen -e
+}
+
+function help_list_file {
+	compgen -f
+}
+
+function help_list_file_folder {
+	compgen -d
+}
+
+function help_list_user {
+	compgen -u
+}
+
+function help_list_group {
+	compgen -g
+}
+
+#
+
+return 0

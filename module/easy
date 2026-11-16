@@ -10,7 +10,7 @@ function edit {
 	}
 
 	[[ $1 == "code"  ]] && {
-		cd ~/desktop/code/$USER
+		cd ~/desktop/code/$user
 		code . --reuse-window
 	}
 
@@ -20,6 +20,12 @@ function edit {
 	}
 
 	code_edit $@
+}
+
+function open {
+	path=$( path "$@" )
+	echo $path
+	explorer $path
 }
 
 function view {
@@ -47,12 +53,12 @@ function pull {
 
 	cd ~/desktop/code/$slug
 
-	git ls-remote https://github.com/$USER/$repo > /dev/null 2>&1 && \
-	git ls-remote https://github.com/$TEAM/$repo > /dev/null 2>&1 && {
+	git ls-remote https://github.com/$user/$repo > /dev/null 2>&1 && \
+	git ls-remote https://github.com/$team/$repo > /dev/null 2>&1 && {
 		git remote show origin > /dev/null && git remote rm origin
-		git remote add                  origin git@github.com:$TEAM/$repo.git
-		git remote set-url --add --push origin git@github.com:$TEAM/$repo.git
-		git remote set-url --add --push origin git@github.com:$USER/$repo.git
+		git remote add                  origin git@github.com:$team/$repo.git
+		git remote set-url --add --push origin git@github.com:$team/$repo.git
+		git remote set-url --add --push origin git@github.com:$user/$repo.git
 		git push --set-upstream origin main
 	}
 
@@ -67,4 +73,8 @@ function sync {
 	use git
 
 	git_sync
+}
+
+function size {
+	pass
 }

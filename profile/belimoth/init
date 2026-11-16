@@ -8,8 +8,9 @@ MSYS=winsymlinks:nativestrict
 
 PWD=$( pwd | sed "s|C:/Users/zach|~|" )
 
-USER=belimoth
-TEAM=subhelion
+user=belimoth
+team=subhelion
+
 GITHUB_USER=belimoth
 # GITHUB_TOKEN=$( cat ~/desktop/null/key/token-gh )
 

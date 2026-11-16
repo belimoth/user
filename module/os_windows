@@ -6,6 +6,14 @@ function windows_env {
 	rundll32.exe sysdm.cpl,EditEnvironmentVariables
 }
 
+function windows_dir_user {
+	pass
+}
+
+function windows_dir_boot {
+	open "~/appdata/roaming/microsoft/windows/start/programs/startup"
+}
+
 function windows_credential_manager {
 	control -name Microsoft.CredentialManager
 }
