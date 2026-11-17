@@ -2,6 +2,14 @@
 
 set -o allexport
 
+function bell {
+	tput bel
+}
+
+function home {
+	cd ~
+}
+
 function edit {
 	use code
 
@@ -10,12 +18,12 @@ function edit {
 	}
 
 	[[ $1 == "code"  ]] && {
-		cd ~/desktop/code/$user
+		cd $user_path/code/$user_name
 		code . --reuse-window
 	}
 
 	[[ $1 == "user" ]] && {
-		cd ~/desktop/user
+		cd $user_path/user
 		code . --reuse-window
 	}
 
@@ -30,7 +38,7 @@ function open {
 
 function view {
 	# todo list possible commands without params, or show a command in its location
-	pass
+	skip
 }
 
 function save {
@@ -43,22 +51,22 @@ function pull {
 	local -; set -o errexit
 	local -; set -o allexport
 
-	user_slug=$1
-	user_name=$( echo $slug | cut -d'/' -f1 )
-	user_repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $user_slug == */* ]] || user_name=$GITHUB_USER
-	user_slug=$name/$repo
+	slug=$1
+	name=$( echo $slug | cut -d'/' -f1 )
+	repo=$( echo $slug | cut -d'/' -f2 )
+	[[ $slug == */* ]] || name=$GITHUB_USER
+	slug=$name/$repo
 
 	code_pull $@
 
 	cd ~/desktop/code/$slug
 
-	git ls-remote https://github.com/$user/$repo > /dev/null 2>&1 && \
-	git ls-remote https://github.com/$team/$repo > /dev/null 2>&1 && {
+	git ls-remote https://github.com/$user_name/$repo > /dev/null 2>&1 && \
+	git ls-remote https://github.com/$user_team/$repo > /dev/null 2>&1 && {
 		git remote show origin > /dev/null && git remote rm origin
-		git remote add                  origin git@github.com:$team/$repo.git
-		git remote set-url --add --push origin git@github.com:$team/$repo.git
-		git remote set-url --add --push origin git@github.com:$user/$repo.git
+		git remote add                  origin git@github.com:$user_team/$repo.git
+		git remote set-url --add --push origin git@github.com:$user_team/$repo.git
+		git remote set-url --add --push origin git@github.com:$user_name/$repo.git
 		git push --set-upstream origin main
 	}
 
@@ -66,7 +74,7 @@ function pull {
 }
 
 function push {
-	pass
+	skip
 }
 
 function sync {
@@ -76,5 +84,5 @@ function sync {
 }
 
 function size {
-	pass
+	skip
 }

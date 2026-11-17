@@ -1,16 +1,46 @@
 #!/bin/bash
 
+[[ "${BASH_SOURCE[0]}" == "${0}" ]] && err "usage: source $user_path/init"
+
 set -o allexport
 
 alias md="mkdir --parents"
-alias pass=":"
+alias skip=":"
+alias and="&&"
+alias or="||"
+alias then="{"
+alias end="}"
+
+bind "set bell-style $user_bell"
+
+skip ${user_name:=$( whoami )}
+skip ${user_path:=~/desktop}
+
+# stem=bzz
+# declare prefix_$stem_suffix_=mystr
+# varname=prefix_${stem}_suffix
+# echo $varname
+# echo ${!varname}
+
+function var {
+	# declare todo
+	skip
+}
+
+var user_name $( whoami )
+var user_path ~/desktop
+
+MSYS=winsymlinks:nativestrict
+
+PWD=$( cygpath --unix $( pwd ) )
+PWD=${PWD/#$HOME/\~}
 
 function path {
 	export PATH=$1:$PATH
 }
 
-path ~/desktop/user/profile/$user
-path ~/desktop/user
+path $user_path/user/profile/$user_name
+path $user_path/user
 
 function err {
 	echo error: $@
@@ -22,7 +52,7 @@ function has {
 }
 
 function use {
-	function stub { eval "function use_$1 { pass; }"; }
+	function stub { eval "function use_$1 { skip; }"; }
 
 	local -; set -o allexport
 
@@ -44,3 +74,9 @@ function use {
 }
 
 use os
+
+function init {
+	skip
+}
+
+alias init=":"

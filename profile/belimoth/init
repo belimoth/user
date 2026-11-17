@@ -3,18 +3,26 @@
 set -o allexport
 
 alias ls="ls -1"
+alias dit=edit
+alias it=edit
+alias t=edit
 
-MSYS=winsymlinks:nativestrict
+user_bell=none
+user_name=belimoth
+user_path=~/desktop
 
-PWD=$( pwd | sed "s|C:/Users/zach|~|" )
+source $user_path/user/init
 
-user=belimoth
-team=subhelion
+user_home=belimoth.com
+user_silo=code
+user_team=subhelion
+user_user=zach
+user_yard=chi
+user_year=1991
 
-GITHUB_USER=belimoth
-# GITHUB_TOKEN=$( cat ~/desktop/null/key/token-gh )
+user_site=
 
-source ~/desktop/user/init
+user_name_github=belimoth
 
 use code
 use data

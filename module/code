@@ -6,7 +6,7 @@ function get_slug {
 	slug=$1
 	user=$( echo $slug | cut -d'/' -f1 )
 	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || user=$GITHUB_USER
+	[[ $slug == */* ]] || user=$user_name
 	slug="$user/$repo"
 	echo "slug: $slug"
 }
@@ -21,7 +21,7 @@ function code_drop {
 	slug=$1
 	user=$( echo $slug | cut -d'/' -f1 )
 	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || user=$GITHUB_USER
+	[[ $slug == */* ]] || user=$user_name
 	slug="$user/$repo"
 	echo "slug: $slug"
 
@@ -52,7 +52,7 @@ function code_drop {
 
 	# test if project folder is empty and then remove it, otherwise rename appending date and index
 
-	[[ -z "$(ls -A $slug)" ]] && rm -rf "$slug" || {
+	[[ -z "$( ls -A $slug )" ]] && rm -rf "$slug" || {
 		dir=$1--$( date +%F )
 		# guarantee that existing folders have sequential indexes
 		i=0 && for f in $name--*; do [[ $f != "$name--$i" ]] && mv $f "$name--$i"; i=$( expr $i + 1 ); done
@@ -68,10 +68,10 @@ function code_edit {
 	[[ -z $1 ]] && err
 
 	slug=$1
-	org=$(  echo $slug | cut -d'/' -f1 )
+	name=$(  echo $slug | cut -d'/' -f1 )
 	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || org=$GITHUB_USER
-	slug=$org/$repo
+	[[ $slug == */* ]] || name=$user_name
+	slug=$name/$repo
 
 	[[ -d ~/desktop/code/$slug ]] || err $slug
 
@@ -102,7 +102,7 @@ function code_list {
 
 function code_list_all {
 	local -; set -o errexit
-	name="${1:-$GITHUB_USER}"
+	name="${1:-$user_name}"
 	code_list $name
 	# todo
 }
@@ -116,7 +116,7 @@ function code_pull {
 	slug=$1
 	name=$( echo $slug | cut -d'/' -f1 )
 	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || name=$GITHUB_USER
+	[[ $slug == */* ]] || name=$user_name
 	slug=$name/$repo
 
 	cd ~/desktop/code
@@ -126,19 +126,14 @@ function code_pull {
 	git clone $( ~/desktop/user/hub/hub_url $slug )
 
 	cd $repo
-
-	# [[ -f ./user/profile/$user/pull ]] && bash ./user/profile # todo check functions for remote instead
 }
 
 function code_push_new {
 	local -; set -o errexit
-
 	[[ -z $1 ]] && err
-
 	slug=$1
-	name=$( echo $slug | cut -d'/' -f1 )
 	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || name=$GITHUB_USER
+	[[ $slug == */* ]] || name=$user_name
 	slug=$name/$repo
 
 	#

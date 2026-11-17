@@ -7,7 +7,7 @@ function windows_env {
 }
 
 function windows_dir_user {
-	pass
+	skip
 }
 
 function windows_dir_boot {

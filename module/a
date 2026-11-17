@@ -12,8 +12,8 @@ HISTFILE=/a/null/.bash_history
 
 path /a/user
 
-[[ -z $user ]] && [[ -f /a/user/profile/$user      ]] && source /a/user/profile/$user
-[[ -z $user ]] && [[ -d /a/user/profile/$user      ]] && path   /a/user/profile/$user
-[[ -z $user ]] && [[ -f /a/user/profile/$user/init ]] && source /a/user/profile/$user/init
+[[ -z $user_name ]] && [[ -f /a/user/profile/$user_name      ]] && source /a/user/profile/$user_name
+[[ -z $user_name ]] && [[ -d /a/user/profile/$user_name      ]] && path   /a/user/profile/$user_name
+[[ -z $user_name ]] && [[ -f /a/user/profile/$user_name/init ]] && source /a/user/profile/$user_name/init
 
 return 0
