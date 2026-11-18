@@ -73,9 +73,7 @@ use
 
 ## Intent
 
-This is a **collaborative** library.
-
-Instead of being devloped in a producer-consumer relationship, every `user` user is meant to modify it to fit their needs.
+This is a **collaborative** library; Instead of being devloped in a producer-consumer relationship, every `user` user is meant to modify it to fit their needs.
 
 |        |                                                                               |
 |--------|-------------------------------------------------------------------------------|
