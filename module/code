@@ -2,6 +2,11 @@
 
 set -o allexport
 
+use
+
+use git
+use hub
+
 function get_slug {
 	slug=$1
 	user=$( echo $slug | cut -d'/' -f1 )
@@ -159,4 +164,8 @@ function code_push_new {
 	git remote set-url --add --push origin $( hub_url $slug )
 
 	git push --set-upstream origin main
+}
+
+function code_save {
+	git_commit_empty
 }

@@ -6,6 +6,7 @@ alias ls="ls -1"
 alias dit=edit
 alias it=edit
 alias t=edit
+alias begin="{"
 alias then="{"
 alias end="}"
 
@@ -27,6 +28,6 @@ use code
 use data
 use easy
 
-function init {
+function init begin
 	source ~/desktop/user/profile/$user_name/init
-}
+end

@@ -44,9 +44,7 @@ function view {
 }
 
 function save {
-	use git
-
-	git_commit_empty
+	code_save
 }
 
 function pull {
