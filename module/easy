@@ -32,19 +32,14 @@ function edit {
 	code_edit $@
 }
 
+function list {
+	skip
+}
+
 function open {
 	path=$( path "$@" )
 	echo $path
 	explorer $path
-}
-
-function view {
-	# todo list possible commands without params, or show a command in its location
-	skip
-}
-
-function save {
-	code_save
 }
 
 function pull {
@@ -77,6 +72,11 @@ function push {
 	skip
 }
 
+
+function save {
+	code_save
+}
+
 function sync {
 	use git
 
@@ -87,6 +87,7 @@ function size {
 	skip
 }
 
-function list {
+function view {
+	# todo list possible commands without params, or show a command in its location
 	skip
 }

@@ -167,5 +167,6 @@ function code_push_new {
 }
 
 function code_save {
+	git diff --cached --quiet && git add --all
 	git_commit_empty
 }
