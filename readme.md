@@ -51,8 +51,6 @@ source ~/desktop/user/profile/your_user_name/init
 ```
 #!/bin/bash
 
-#
-
 set -o allexport
 
 # required
