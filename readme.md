@@ -1,6 +1,6 @@
 # `user`
 
-This is the [SUBHELION SOCIETY](subhelion.com) collaborative user script library.
+This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative user script library.
 
 ## Included
 
