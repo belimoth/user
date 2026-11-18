@@ -81,7 +81,7 @@ This is a **collaborative** library; Instead of being devloped in a producer-con
 | Step 2 | Read other `user` users' profile files to see what is possible                |
 | Step 3 | Fill out your `profile` folder, especially `user/profile/your_user_name/init` |
 | Step 4 | Read the rest of source code and make modifications as needed                 |
-| Step 5 | Add your user name below                                                      |
+| Step 5 | Add your `user_name` below                                                      |
 
 ## Users
 
