@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# use os
-# use os_windows
+use
+use os
+use os_windows
 
 set -o allexport
 

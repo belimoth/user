@@ -6,21 +6,12 @@ set -o allexport
 
 alias md="mkdir --parents"
 alias skip=":"
-alias and="&&"
-alias or="||"
-alias then="{"
-alias end="}"
 
-bind "set bell-style $user_bell"
-
+skip ${user_bell:=none}
 skip ${user_name:=$( whoami )}
 skip ${user_path:=~/desktop}
 
-# stem=bzz
-# declare prefix_$stem_suffix_=mystr
-# varname=prefix_${stem}_suffix
-# echo $varname
-# echo ${!varname}
+bind "set bell-style $user_bell"
 
 function var {
 	# declare todo
@@ -39,8 +30,8 @@ function path {
 	export PATH=$1:$PATH
 }
 
-path $user_path/user/profile/$user_name
 path $user_path/user
+path $user_path/user/profile/$user_name
 
 function err {
 	echo error: $@
@@ -52,6 +43,8 @@ function has {
 }
 
 function use {
+	[[ -z $1 ]] && return
+
 	function stub { eval "function use_$1 { skip; }"; }
 
 	local -; set -o allexport
@@ -72,8 +65,6 @@ function use {
 
 	err use $1
 }
-
-use os
 
 function init {
 	skip

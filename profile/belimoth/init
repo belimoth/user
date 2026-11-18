@@ -6,24 +6,27 @@ alias ls="ls -1"
 alias dit=edit
 alias it=edit
 alias t=edit
+alias then="{"
+alias end="}"
 
-user_bell=none
+# user_bell=none
 user_name=belimoth
+
 user_path=~/desktop
+user_site=belimoth.com
+user_team=subhelion
+user_user=zach
+
+user_name_github=belimoth
 
 source $user_path/user/init
 
-user_home=belimoth.com
-user_silo=code
-user_team=subhelion
-user_user=zach
-user_yard=chi
-user_year=1991
-
-user_site=
-
-user_name_github=belimoth
+use
 
 use code
 use data
 use easy
+
+function init {
+	source ~/desktop/user/profile/$user_name/init
+}

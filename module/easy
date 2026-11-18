@@ -2,6 +2,8 @@
 
 set -o allexport
 
+use
+
 function bell {
 	tput bel
 }
@@ -84,5 +86,9 @@ function sync {
 }
 
 function size {
+	skip
+}
+
+function list {
 	skip
 }
