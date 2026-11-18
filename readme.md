@@ -58,13 +58,15 @@ set -o allexport
 user_name=your_user_name
 user_path=~/desktop
 
-source $user_path/user/init
-
 # optional
 
 user_team=subhelion
 user_user=your_local_pc_user_name
 user_name_github=your_github_user_name
+
+#
+
+source $user_path/user/init
 
 use
 ```
@@ -79,7 +81,7 @@ This is a **collaborative** library; Instead of being devloped in a producer-con
 | Step 2 | Read other `user` users' profile files to see what is possible                |
 | Step 3 | Fill out your `profile` folder, especially `user/profile/your_user_name/init` |
 | Step 4 | Read the rest of source code and make modifications as needed                 |
-| Step 5 | Add your `user_name` below                                                      |
+| Step 5 | Add your `user_name` below                                                    |
 
 ## Users
 
