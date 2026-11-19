@@ -1,3 +1,8 @@
 #!/bin/bash
 
-explorer
+[[ -z $1 ]] && { explorer; exit }
+
+echo a "$@"
+path=$( cygpath --windows "$@" )
+echo b $path
+explorer $path

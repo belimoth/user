@@ -20,13 +20,6 @@ function list {
 	skip
 }
 
-function open {
-	echo a "$@"
-	path=$( cygpath --windows "$@" )
-	echo b $path
-	explorer $path
-}
-
 function push {
 	skip
 }

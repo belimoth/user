@@ -1,0 +1,5 @@
+#!/bin/bash
+
+[[ -z $1 ]] && { start msedge; exit; }
+
+start msedge "$@"
