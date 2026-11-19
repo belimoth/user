@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function get_vcpkg {
-	cd ~/desktop/null
+	cd ~/desktop/void
 	git clone https://github.com/microsoft/vcpkg.git
 	cd vcpkg
 	bootstrap-vcpkg.sh -disableMetrics

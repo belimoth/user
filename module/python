@@ -16,11 +16,11 @@ function use_python_package {
 [[ $( pwd ) == "/a" ]] || return 0
 
 function activate {
-	[[ -d "/a/null/venv" ]] || err "venv not initialized; run 'install'"
+	[[ -d "/a/void/venv" ]] || err "venv not initialized; run 'install'"
 
 	# shellcheck disable=SC1091
-	source /a/null/venv/scripts/activate
-	export PYTHONPYCACHEPREFIX=/a/null/run
+	source /a/void/venv/scripts/activate
+	export PYTHONPYCACHEPREFIX=/a/void/run
 }
 
 [[ -f /a/user/python/runtime.txt ]] && [[ $( python --version ) == $( cat /a/user/python/runtime.txt ) ]] || echo "warning: python version mismatch"

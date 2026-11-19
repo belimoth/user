@@ -9,7 +9,7 @@ set -o allexport
 MSYS_NO_PATHCONV=1 subst /d a: | true && subst a: .
 
 history -c
-HISTFILE=/a/null/.bash_history
+HISTFILE=/a/void/.bash_history
 
 path /a/user
 

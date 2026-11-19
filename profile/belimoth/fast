@@ -1,9 +1,9 @@
 #!/bin/bash
 
 function fast_init_load {
-	[[ -f ~/desktop/null/user/init ]] || return 1
+	[[ -f ~/desktop/void/user/init ]] || return 1
 	set -o allexport
-	source ~/desktop/null/user/init
+	source ~/desktop/void/user/init
 	set +o allexport
 	echo fast
 	return 0
@@ -12,16 +12,16 @@ function fast_init_load {
 fast_init_load && return 0
 
 function fast_init_save {
-	md --parents ~/desktop/null/user
-	[[ -f ~/desktop/null/user/init ]] && rm ~/desktop/null/user/init
-	touch ~/desktop/null/user/init
-	shopt -op >> ~/desktop/null/user/init
-	# env >> ~/desktop/null/user/init
-	export -p | grep -Ev '^(declare -xr|export) (BASH|_=|PWD|OLDPWD|SHELLOPTS|SHLVL|UID|PPID)' >> ~/desktop/null/user/init
-	# declare -p | grep -Ev '^(declare -xr|export) (BASH|_=|PWD|OLDPWD|SHELLOPTS|SHLVL|UID|PPID)' >> ~/desktop/null/user/init
-	declare -f | grep -Ev '^(declare -xr|export) (BASH|_=|PWD|OLDPWD|SHELLOPTS|SHLVL|UID|PPID)' >> ~/desktop/null/user/init
+	md --parents ~/desktop/void/user
+	[[ -f ~/desktop/void/user/init ]] && rm ~/desktop/void/user/init
+	touch ~/desktop/void/user/init
+	shopt -op >> ~/desktop/void/user/init
+	# env >> ~/desktop/void/user/init
+	export -p | grep -Ev '^(declare -xr|export) (BASH|_=|PWD|OLDPWD|SHELLOPTS|SHLVL|UID|PPID)' >> ~/desktop/void/user/init
+	# declare -p | grep -Ev '^(declare -xr|export) (BASH|_=|PWD|OLDPWD|SHELLOPTS|SHLVL|UID|PPID)' >> ~/desktop/void/user/init
+	declare -f | grep -Ev '^(declare -xr|export) (BASH|_=|PWD|OLDPWD|SHELLOPTS|SHLVL|UID|PPID)' >> ~/desktop/void/user/init
 }
 
 function fast_init_thaw {
-	rm ~/desktop/null/user/init
+	rm ~/desktop/void/user/init
 }

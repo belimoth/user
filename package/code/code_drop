@@ -30,7 +30,7 @@ echo "origin: $( git config --get remote.origin.url )"
 
 # TODO check all branches for unpushed changes
 
-[[ -f "null/uninstall" ]] && bash null/uninstall
+[[ -f "void/uninstall" ]] && bash void/uninstall
 
 git ls-files -z | xargs -0 rm -f
 find . -name ".DS_Store" -delete
