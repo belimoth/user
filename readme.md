@@ -35,13 +35,17 @@ This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative user script
 |        |                                                                                                                 |
 |--------|-----------------------------------------------------------------------------------------------------------------|
 | `a`    | Mounts code projects to the `A:` drive with `subst`                                                             |
+|        |                                                                                                                 |
 | `code` | Provides `code_edit`                                                                                            |
 |        | Provides `code_drop`, `code_list`, `code_pull`, `code_push`, `code_save`                                        |
 | `data` | Provides `data_drop`, `data_list`, `data_pull`, `data_push`, `data_save`                                        |
 | `file` | Provides `file_drop`, `file_list`, `file_pull`, `file_push`, `file_save`                                        |
+|        |                                                                                                                 |
 | `easy` | Abbreviates `code_edit` to `edit`                                                                               |
 |        | Privides `home`, `open`, `size`, `view`, and `sync`                                                             |
 |        | Maps `drop`,`list`,  `pull`, `push`, and `save` to their `code_`, `data_`, and `file_` equivalents contextually |
+|        |                                                                                                                 |
+| `form` | Contains templates for new code projects                                                                        |
 | `help` | Generates and navigates `html` help files                                                                       |
 | `hub`  | Provides `hub_url` and `hub_new`                                                                                |
 
@@ -113,7 +117,6 @@ This is a **collaborative** library; Instead of being devloped in a producer-con
 | `use os`         | -- |
 | `use os_windows` | -- |
 
-
 ### Modules, ease
 
 #### `a`
@@ -124,14 +127,12 @@ Mounts code projects to the `A:` drive with `subst`.
 |---------|----|
 | `use a` | -- |
 
-
 #### `code`
 
 |            |    |
 |------------|----|
 | `use code` | -- |
 |            |    |
-
 
 #### `data`
 
@@ -145,24 +146,32 @@ Mounts code projects to the `A:` drive with `subst`.
 |------------|----|
 | `use file` | -- |
 
-### Modules, easy
+#### `form`
 
-#### `easy`
+|            |  |
+|------------|--|
+| `use file` |  |
+
+### Modules, easy
 
 |            |    |
 |------------|----|
 | `use easy` | -- |
 
-#### `list`
+#### Commands, `easy/list`
 
 |        |               |
 |--------|---------------|
 | `list` | List projects |
 
+#### Commands, `easy/drop`, `easy/save`
+
 |        |                          |
 |--------|--------------------------|
 | `drop` | Drop the current project |
 | `save` | Save the current project |
+
+#### Commands, `easy/pull`, `easy/push`, `easy/sync`
 
 |               |                                     |
 |---------------|-------------------------------------|
@@ -171,10 +180,16 @@ Mounts code projects to the `A:` drive with `subst`.
 | `push`        | Push the current project to hub     |
 | `sync`        | Sync the current project with hub   |
 
+#### Commands, `easy/edit`
+
 |               |                                                        |
 |---------------|--------------------------------------------------------|
 | `edit`        | Run the editor                                         |
+| `edit code`   | Edit all projects at once                              |
+| `edit user`   | Edit this repo                             |
 | `edit <slug>` | Pull if necessary, and then edit the specified project |
+
+#### Commands, other
 
 |                  |                                                                   |
 |------------------|-------------------------------------------------------------------|
@@ -191,6 +206,63 @@ Mounts code projects to the `A:` drive with `subst`.
 |                  |                                                                   |
 | `view`           | Run the explorer                                                  |
 |                  |                                                                   |
+
+## Help, `form`
+
+This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative code project template library.
+
+### Included
+
+```
+base
+cpp
+cpp_msvc
+cpp_mvsc_cmd
+cpp_vcpkg
+cpp_win32
+cpp_win32_dx11
+cpp_win32_nocrt
+```
+
+#### shell (WIP)
+
+```sh
+# (re)start code with tools
+start
+
+# install vcpkg
+vcpkg
+
+# install dependencies with vcpkg
+install
+
+# rebuild null/vend
+vend
+
+# building
+
+build
+
+# running
+
+run
+run --debug
+run --headless
+```
+
+### API (WIP)
+
+```
+void main_init();
+void main_size();
+void main_idle();
+void main_start();
+void main_step();
+void main_draw();
+void main_on_system_event( app_system_event );
+void main_exit();
+void main_midi( midi_event event );
+```
 
 
 ## Users
