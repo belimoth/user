@@ -4,8 +4,8 @@ use
 use os
 use os_windows
 
-use get_scoop
 use get_winget
+use get_scoop
 
 # utility
 
