@@ -5,17 +5,15 @@ set -o allexport
 PAGER=
 
 function git_amend {
-	local -; set -o xtrace
-
 	git commit --amend --no-edit --allow-empty-message
 }
 
+# git_archive_branch <branch>
+
 function git_archive_branch {
-	# git_archive_branch <branch>
 	tag=archive/$( date --iso-8601 )/$1
 
-	local -; set -o xtrace
-	local -; set -o verbose
+	local -; set -vx
 
 	git tag $tag origin/$1
 	git push origin $tag
@@ -23,13 +21,14 @@ function git_archive_branch {
 }
 
 function git_check {
-	local -; set -o xtrace
-	local -; set -o verbose
+	local -; set -vx
 
 	# test for unstaged changes
+
 	git diff-files --quiet -- || err unstaged changes
 
 	# test for uncommitted changes
+
 	git diff-index --cached --quiet HEAD -- || err uncommitted changes
 }
 
@@ -53,10 +52,10 @@ function git_log_graph {
 	git log --graph --pretty=format:"%h %ad %<(8,trunc)%an %s" --date=short "$@"; echo
 }
 
-function git_rename_branch {
-	# git-rename-branch <old> <new>
+# git-rename-branch <old> <new>
 
-	local -; set -o xtrace
+function git_rename_branch {
+	local -; set -vx
 
 	git checkout $1
 	git branch --move $2
@@ -65,7 +64,7 @@ function git_rename_branch {
 }
 
 function git_sync {
-	local -; set -o xtrace
+	local -; set -vx
 
 	git fetch
 	git_check
@@ -77,7 +76,7 @@ function git_sync_branch {
 	branch=$( git rev-parse --abbrev-ref HEAD )
 	base=$( basename $( git rev-parse --abbrev-ref origin/HEAD ) )
 
-	local -; set -o xtrace
+	local -; set -o vx
 
 	git switch $base
 	git pull --ff-only
@@ -86,7 +85,7 @@ function git_sync_branch {
 }
 
 function git_sync_rebase {
-	local -; set -o xtrace
+	local -; set -o vx
 
 	git fetch
 	git_check

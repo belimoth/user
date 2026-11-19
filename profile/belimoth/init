@@ -11,14 +11,13 @@ alias then="{"
 alias end="}"
 
 # user_bell=none
-user_name=belimoth
 
+user_name=belimoth
+user_name_github=belimoth
 user_path=~/desktop
 user_site=belimoth.com
 user_team=subhelion
 user_user=zach
-
-user_name_github=belimoth
 
 source $user_path/user/init
 

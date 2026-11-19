@@ -37,8 +37,9 @@ function list {
 }
 
 function open {
-	path=$( path "$@" )
-	echo $path
+	echo a "$@"
+	path=$( cygpath --windows "$@" )
+	echo b $path
 	explorer $path
 }
 

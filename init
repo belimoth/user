@@ -28,6 +28,7 @@ PWD=$( cygpath --unix $( pwd ) )
 PWD=${PWD/#$HOME/\~}
 
 function path {
+	[[ -z $1 ]] && { echo $PATH | tr : "\n"; return; }
 	export PATH=$1:$PATH
 }
 
@@ -66,6 +67,12 @@ function use {
 
 	err use $1
 }
+
+# function init {
+# 	[[ -z $1 ]] && echo todo
+# 	eval "unset -f use_$1"
+# 	use $1
+# }
 
 function init {
 	skip
