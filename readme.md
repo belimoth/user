@@ -2,56 +2,6 @@
 
 This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative user script library.
 
-## Design
-
-<style>
-
-table[design] {
-	white-space: preserve;
-	font-family: Consolas, "Courier New", monospace;
-	border-collapse: separate;
-	border-spacing: 2px;
-	width: 100%;
-	table-layout: fixed;
-}
-
-table[design] th,
-table[design] td {
-	border: none;
-	color: #FFF;
-	font-weight: inherit;
-}
-
-table[design] td {
-	text-align: center;
-	background: #0078D4;
-}
-
-table[design] td[warn] {
-	background: #E69F00
-}
-
-table[design] td[void] {
-	background: none;
-}
-
-<!-- that was --></style>
-
-<table design>
-<tr><th><td warn colspan=2>linux <td warn colspan=2>osx  <td colspan=2>windows
-<tr><th><td void colspan=2>      <td void colspan=2>brew <td>winget          <td>scoop
-<tr><th><td void colspan=2>      <td void colspan=2>     <td>mingit + busybox<td>
-
-<tr><th>a    --
-<tr><th>code --
-<tr><th>data --
-<tr><th>file --
-<tr><th>easy --
-<tr><th>hub  --
-
-
-</table>
-
 ## Included
 
 #### Modules for development, system administration, and vendor services
