@@ -1,0 +1,27 @@
+#!/bin/bash
+
+set -o errexit
+
+set -vx
+
+slug=$1
+user=$( echo $slug | cut -d'/' -f1 )
+repo=$( echo $slug | cut -d'/' -f2 )
+[[ $slug == */* ]] || user=$user_name
+slug="$user/$repo"
+echo "slug: $slug"
+
+code_pull $@
+
+cd ~/desktop/code/$slug
+
+git ls-remote https://github.com/$user_name/$repo > /dev/null 2>&1 && \
+git ls-remote https://github.com/$user_team/$repo > /dev/null 2>&1 && {
+	git remote show origin > /dev/null && git remote rm origin
+	git remote add                  origin git@github.com:$user_team/$repo.git
+	git remote set-url --add --push origin git@github.com:$user_team/$repo.git
+	git remote set-url --add --push origin git@github.com:$user_name/$repo.git
+	git push --set-upstream origin main
+}
+
+return 0

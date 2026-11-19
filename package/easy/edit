@@ -1,0 +1,17 @@
+#!/bin/bash
+
+[[ -z $1 ]] && {
+	code
+}
+
+[[ $1 == "code"  ]] && {
+	cd $user_path/code/$user_name
+	code . --reuse-window
+}
+
+[[ $1 == "user" ]] && {
+	cd $user_path/user
+	code . --reuse-window
+}
+
+code_edit $@

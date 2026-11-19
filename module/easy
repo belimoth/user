@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -o allexport
-
 use
+
+use code
 
 function bell {
 	tput bel
@@ -12,24 +12,8 @@ function home {
 	cd ~
 }
 
-function edit {
-	use code
-
-	[[ -z $1 ]] && {
-		code
-	}
-
-	[[ $1 == "code"  ]] && {
-		cd $user_path/code/$user_name
-		code . --reuse-window
-	}
-
-	[[ $1 == "user" ]] && {
-		cd $user_path/user
-		code . --reuse-window
-	}
-
-	code_edit $@
+function drop {
+	code_drop "$@"
 }
 
 function list {
@@ -43,36 +27,9 @@ function open {
 	explorer $path
 }
 
-function pull {
-	local -; set -o errexit
-	local -; set -o allexport
-
-	slug=$1
-	name=$( echo $slug | cut -d'/' -f1 )
-	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || name=$GITHUB_USER
-	slug=$name/$repo
-
-	code_pull $@
-
-	cd ~/desktop/code/$slug
-
-	git ls-remote https://github.com/$user_name/$repo > /dev/null 2>&1 && \
-	git ls-remote https://github.com/$user_team/$repo > /dev/null 2>&1 && {
-		git remote show origin > /dev/null && git remote rm origin
-		git remote add                  origin git@github.com:$user_team/$repo.git
-		git remote set-url --add --push origin git@github.com:$user_team/$repo.git
-		git remote set-url --add --push origin git@github.com:$user_name/$repo.git
-		git push --set-upstream origin main
-	}
-
-	return 0
-}
-
 function push {
 	skip
 }
-
 
 function save {
 	code_save

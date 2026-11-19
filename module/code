@@ -16,8 +16,8 @@ function get_slug {
 	echo "slug: $slug"
 }
 
-function code_drop {
-	# code_drop <slug>
+function code_edit {
+	# code_edit <slug>
 
 	local -; set -o errexit
 
@@ -30,54 +30,6 @@ function code_drop {
 	slug="$user/$repo"
 	echo "slug: $slug"
 
-	cd ~/desktop/code
-
-	[[ -d "$slug" ]] || err "folder '$slug' doesn't exist"
-
-	cd $slug
-
-	[[ -d ".git" ]] || err "folder $1 is not a git repo"
-
-	echo "origin: $( git config --get remote.origin.url )"
-	# [[ $( git config --get remote.origin.url ) == https://github.com/$user/* ]] || \
-	# [[ $( git config --get remote.origin.url ) == git@github.com:$user/*     ]] || \
-	# err "missing or incorrect origin"
-
-	# TODO check all branches for unpushed changes
-
-	[[ -f "null/uninstall" ]] && bash null/uninstall
-
-	git ls-files -z | xargs -0 rm -f
-	find . -name ".DS_Store" -delete
-	find . -name "*.pyc"     -delete
-	find . -type d -empty    -delete
-	rm -rf ".git"
-
-	cd ../..
-
-	# test if project folder is empty and then remove it, otherwise rename appending date and index
-
-	[[ -z "$( ls -A $slug )" ]] && rm -rf "$slug" || {
-		dir=$1--$( date +%F )
-		# guarantee that existing folders have sequential indexes
-		i=0 && for f in $name--*; do [[ $f != "$name--$i" ]] && mv $f "$name--$i"; i=$( expr $i + 1 ); done
-		mv "$1" "$name--$( ls -dq $name--* | wc -l | xargs )"
-	}
-}
-
-function code_edit {
-	# code_edit <slug>
-
-	local -; set -o errexit
-
-	[[ -z $1 ]] && err
-
-	slug=$1
-	name=$(  echo $slug | cut -d'/' -f1 )
-	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || name=$user_name
-	slug=$name/$repo
-
 	[[ -d ~/desktop/code/$slug ]] || err $slug
 
 	cd ~/desktop/code/$slug
@@ -86,7 +38,7 @@ function code_edit {
 }
 
 function code_list {
-	local -; set -o errexit
+	# local -; set -o errexit
 
 	name="${1:-$GITHUB_USER}"
 
@@ -106,35 +58,17 @@ function code_list {
 }
 
 function code_list_all {
-	local -; set -o errexit
+	# local -; set -o errexit
+
 	name="${1:-$user_name}"
 	code_list $name
+
 	# todo
 }
 
-function code_pull {
-	# code_pull <slug> && code_edit $_
-	local -; set -o errexit
-
-	[[ -z $1 ]] && err
-
-	slug=$1
-	name=$( echo $slug | cut -d'/' -f1 )
-	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || name=$user_name
-	slug=$name/$repo
-
-	cd ~/desktop/code
-
-	mkdir --parents $name && cd $_
-
-	git clone $( ~/desktop/user/hub/hub_url $slug )
-
-	cd $repo
-}
-
 function code_push_new {
-	local -; set -o errexit
+	# local -; set -o errexit
+
 	[[ -z $1 ]] && err
 	slug=$1
 	repo=$( echo $slug | cut -d'/' -f2 )

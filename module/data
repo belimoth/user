@@ -6,14 +6,18 @@ function data_list {
 
 function data_pull {
 	# data_pull <path> [--dryrun]
-	set -o errexit
+
+	# local -; set -o errexit
+
 	mkdir --parents ~/desktop/data/data.subhelion.com
 	aws --profile data.subhelion.com s3 sync s3://data.subhelion.com/$1 ~/desktop/data/data.subhelion.com/$1 $2
 }
 
 function data_push {
 	# data_push <path> [--dryrun]
-	set -o errexit
+
+	# local -; set -o errexit
+
 	mkdir --parents ~/desktop/data/data.subhelion.com
 	aws --profile data.subhelion.com s3 sync ~/desktop/data/data.subhelion.com/$1 s3://data.subhelion.com/$1 $2
 }

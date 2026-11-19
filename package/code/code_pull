@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# code_pull <slug> && code_edit $_
+
+# local -; set -o errexit
+
+set -vx
+
+[[ -z $1 ]] && err
+
+slug=$1
+user=$( echo $slug | cut -d'/' -f1 )
+repo=$( echo $slug | cut -d'/' -f2 )
+[[ $slug == */* ]] || user=$user_name
+slug="$user/$repo"
+echo "slug: $slug"
+
+echo pull $slug
+
+cd ~/desktop/code
+
+mkdir --parents $name && cd $_
+
+git clone $( hub_url $slug )
+
+cd $repo
