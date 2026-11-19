@@ -2,9 +2,21 @@
 
 This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative user script library.
 
-## Included
+## Intro
 
-#### Modules for development, system administration, and vendor services
+### Included
+
+#### Base commands
+
+|                    |                                            |
+|--------------------|--------------------------------------------|
+| `get <module>`     | Reserved, along with the `get_` name space |
+| `has <module>`     | Reserved, along with the `has_` name space |
+| `use`              | --                                         |
+| `use <module>`     | --                                         |
+| `use <get_module>` | --                                         |
+
+#### Modules: development, system administration, and vendor services
 
 |                                |                                              |
 |--------------------------------|----------------------------------------------|
@@ -18,7 +30,7 @@ This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative user script
 | System package mangament       | `winget`, `scoop`, etc                       |
 | System                         | `windows`                                    |
 
-#### Modules for ease-of-use
+#### Modules: ease and easy
 
 |        |                                                                                                                 |
 |--------|-----------------------------------------------------------------------------------------------------------------|
@@ -31,9 +43,9 @@ This is the [SUBHELION SOCIETY](https://subhelion.com) collaborative user script
 |        | Privides `home`, `open`, `size`, `view`, and `sync`                                                             |
 |        | Maps `drop`,`list`,  `pull`, `push`, and `save` to their `code_`, `data_`, and `file_` equivalents contextually |
 | `help` | Generates and navigates `html` help files                                                                       |
-| `hub`  | Provides `hub_url` and `hub_new`
+| `hub`  | Provides `hub_url` and `hub_new`                                                                                |
 
-## Installation
+### Installation
 
 This will clone `user` into `~/desktop/user`, and create additional folders on the desktop.
 
@@ -72,17 +84,114 @@ source $user_path/user/init
 use
 ```
 
-## Intent
+### Intent
 
 This is a **collaborative** library; Instead of being devloped in a producer-consumer relationship, every `user` user is meant to modify it to fit their needs.
 
 |        |                                                                               |
 |--------|-------------------------------------------------------------------------------|
 | Step 1 | Download and install the library                                              |
-| Step 2 | Read other `user` users' profile files to see what is possible                |
+| Step 2 | Read other `user` users' profiles' files to see what is possible              |
 | Step 3 | Fill out your `profile` folder, especially `user/profile/your_user_name/init` |
 | Step 4 | Read the rest of source code and make modifications as needed                 |
-| Step 5 | Add your `user_name` below                                                    |
+| Step 5 | Add your `user_name` to the list at the bottom of this document               |
+
+## Help
+
+### Modules, core
+
+#### `git`
+
+|           |    |
+|-----------|----|
+| `use git` | -- |
+
+#### `os`
+
+|                  |    |
+|------------------|----|
+| `use os`         | -- |
+| `use os_windows` | -- |
+
+
+### Modules, ease
+
+#### `a`
+
+Mounts code projects to the `A:` drive with `subst`.
+
+|         |    |
+|---------|----|
+| `use a` | -- |
+
+
+#### `code`
+
+|            |    |
+|------------|----|
+| `use code` | -- |
+|            |    |
+
+
+#### `data`
+
+|            |    |
+|------------|----|
+| `use data` | -- |
+
+#### `file`
+
+|            |    |
+|------------|----|
+| `use file` | -- |
+
+### Modules, easy
+
+#### `easy`
+
+|            |    |
+|------------|----|
+| `use easy` | -- |
+
+#### `list`
+
+|        |               |
+|--------|---------------|
+| `list` | List projects |
+
+|        |                          |
+|--------|--------------------------|
+| `drop` | Drop the current project |
+| `save` | Save the current project |
+
+|               |                                     |
+|---------------|-------------------------------------|
+| `pull`        | Pull the current project from hub   |
+| `pull <slug>` | Pull the specified project from hub |
+| `push`        | Push the current project to hub     |
+| `sync`        | Sync the current project with hub   |
+
+|               |                                                        |
+|---------------|--------------------------------------------------------|
+| `edit`        | Run the editor                                         |
+| `edit <slug>` | Pull if necessary, and then edit the specified project |
+
+|                  |                                                                   |
+|------------------|-------------------------------------------------------------------|
+| `home`           | Navigate to the home folder                                       |
+|                  |                                                                   |
+|                  |                                                                   |
+| `open`           | Run the browser                                                   |
+| `open <command>` | Run the browser version of a command instead of the shell version |
+|                  |                                                                   |
+| `size`           | Size the current project                                          |
+| `size <slug>`    | Size the specified project                                        |
+| `size all`       | Size all projects                                                 |
+| `size total`     | Size total system footprint                                       |
+|                  |                                                                   |
+| `view`           | Run the explorer                                                  |
+|                  |                                                                   |
+
 
 ## Users
 
