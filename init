@@ -7,19 +7,20 @@ set -o allexport
 alias md="mkdir --parents"
 alias skip=":"
 
-skip ${user_bell:=none}
-skip ${user_name:=$( whoami )}
-skip ${user_path:=~/desktop}
-
-bind "set bell-style $user_bell"
-
 function var {
-	# declare todo
-	skip
+	[[ -v $1 ]] || declare $1=$2
+}
+
+function let {
+	declare $1=$2
 }
 
 var user_name $( whoami )
+var user_user $( whoami )
 var user_path ~/desktop
+var user_bell none
+
+bind "set bell-style $user_bell"
 
 MSYS=winsymlinks:nativestrict
 

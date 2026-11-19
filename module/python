@@ -16,7 +16,7 @@ function use_python_package {
 [[ $( pwd ) == "/a" ]] || return 0
 
 function activate {
-	[[ -d "/a/null/venv" ]] || err "error: venv not initialized; run 'install'"
+	[[ -d "/a/null/venv" ]] || err "venv not initialized; run 'install'"
 
 	# shellcheck disable=SC1091
 	source /a/null/venv/scripts/activate

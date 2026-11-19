@@ -32,11 +32,11 @@ function code_drop {
 
 	cd ~/desktop/code
 
-	[[ -d "$slug" ]] || err "error: folder '$slug' doesn't exist"
+	[[ -d "$slug" ]] || err "folder '$slug' doesn't exist"
 
 	cd $slug
 
-	[[ -d ".git" ]] || err "error: folder $1 is not a git repo"
+	[[ -d ".git" ]] || err "folder $1 is not a git repo"
 
 	echo "origin: $( git config --get remote.origin.url )"
 	# [[ $( git config --get remote.origin.url ) == https://github.com/$user/* ]] || \

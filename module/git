@@ -15,6 +15,7 @@ function git_archive_branch {
 	tag=archive/$( date --iso-8601 )/$1
 
 	local -; set -o xtrace
+	local -; set -o verbose
 
 	git tag $tag origin/$1
 	git push origin $tag
@@ -22,11 +23,14 @@ function git_archive_branch {
 }
 
 function git_check {
+	local -; set -o xtrace
+	local -; set -o verbose
+
 	# test for unstaged changes
-	git diff-files --quiet -- || err "error: unstaged changes"
+	git diff-files --quiet -- || err unstaged changes
 
 	# test for uncommitted changes
-	git diff-index --cached --quiet HEAD -- || err "error: uncommitted changes"
+	git diff-index --cached --quiet HEAD -- || err uncommitted changes
 }
 
 function git_check_ignored {

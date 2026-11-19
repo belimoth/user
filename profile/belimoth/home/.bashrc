@@ -2,6 +2,7 @@ set -o allexport
 
 PS1="\w> "
 # PS1="\u@\h \w> "
+PS4="\w> "
 
 HISTCONTROL=erasedups
 HISTSIZE=10000
