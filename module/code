@@ -16,27 +16,6 @@ function get_slug {
 	echo "slug: $slug"
 }
 
-function code_edit {
-	# code_edit <slug>
-
-	local -; set -o errexit
-
-	[[ -z $1 ]] && err
-
-	slug=$1
-	user=$( echo $slug | cut -d'/' -f1 )
-	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || user=$user_name
-	slug="$user/$repo"
-	echo "slug: $slug"
-
-	[[ -d ~/desktop/code/$slug ]] || err $slug
-
-	cd ~/desktop/code/$slug
-	[[ -f ./user/init ]] && ./user/init
-	code . --reuse-window
-}
-
 function code_list {
 	# local -; set -o errexit
 
@@ -64,40 +43,6 @@ function code_list_all {
 	code_list $name
 
 	# todo
-}
-
-function code_push_new {
-	# local -; set -o errexit
-
-	[[ -z $1 ]] && err
-	slug=$1
-	repo=$( echo $slug | cut -d'/' -f2 )
-	[[ $slug == */* ]] || name=$user_name
-	slug=$name/$repo
-
-	#
-
-	[[ -d ~/desktop/code/$slug ]] && err
-
-	mkdir --parents ~/desktop/code/$slug && cd $_
-
-	git init
-
-	#
-
-	git commit --allow-empty --allow-empty-message --message ""
-	touch .gitignore
-	git add .gitignore
-	git commit --allow-empty-message --message ""
-
-	# TODO handle case where repo already exists
-
-	hub_new $slug
-
-	git remote add                  origin $( hub_url $slug )
-	git remote set-url --add --push origin $( hub_url $slug )
-
-	git push --set-upstream origin main
 }
 
 function code_save {

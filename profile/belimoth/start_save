@@ -1,0 +1,3 @@
+#!/bin/bash
+
+powershell "Export-StartLayout -Path '$( cygpath --windows $user_path/user/profile/$user_name/start.xml )'"

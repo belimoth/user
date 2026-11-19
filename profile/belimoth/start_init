@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -vx
+
+powershell -Command "Import-StartLayout -LayoutPath 'C:\Users\zach\desktop\user\profile\belimoth\start.xml' -MountPath 'C:\'"

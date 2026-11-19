@@ -8,6 +8,13 @@ function reg {
 # NOTE don't actually reg git it messes up the module
 # reg git    git.git
 
-reg ahk    autohotkey.autohotkey
-reg python python.python.3.14
-reg vscode microsoft.vscode
+reg ahk        autohotkey.autohotkey
+reg discord    discord.discord
+reg itch       itchio.itch
+reg openal     creativetechnology.openal
+reg pd         millerpuckette.puredata
+reg pm         moonchildproductions.palemoon
+reg ps         microsoft.powershell
+reg python     python.python.3.14
+reg vscode     microsoft.vscode
+reg windirstat windirstat.windirstat

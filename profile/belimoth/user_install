@@ -7,12 +7,34 @@ use os_windows
 use get_scoop
 use get_winget
 
-use 7zip
+# utility
+
 use ahk
-use aws
+
+# cli utility
+
+use 7zip
 use cloc
 use git
-use hub
-use shellcheck
 use wget
 use ytdlp
+
+# cli service
+
+use aws
+use hub
+
+# developer tool
+
+use shellcheck
+use vscode
+
+# runtime dependency
+
+use openal
+
+# app
+
+use discord
+use windirstat
+use pm

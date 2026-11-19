@@ -24,4 +24,4 @@ git ls-remote https://github.com/$user_team/$repo > /dev/null 2>&1 && {
 	git push --set-upstream origin main
 }
 
-return 0
+exit 0
