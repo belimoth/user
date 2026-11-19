@@ -236,7 +236,7 @@ vcpkg
 # install dependencies with vcpkg
 install
 
-# rebuild null/vend
+# rebuild void/vend
 vend
 
 # building

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -o allexport
+source /a/void/msvc/vcvars.env
+PATH=$( cat /a/void/msvc/vcvars-path.txt ):$PATH
+set +o allexport

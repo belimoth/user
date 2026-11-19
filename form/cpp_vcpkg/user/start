@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -o errexit
+
+MSYS_NO_PATHCONV=1 subst /d a: | true && subst a: .
+
+history -c
+export HISTFILE=/a/void/.bash_history
+
+export PATH=/a/user:$PATH
+export PATH=$PATH:/a/user/msvc
+export PATH=$PATH:/a/void/vcpkg
+
+code /a --reuse-window

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm --recursive --force void
+mkdir void
+touch void/.gitkeep

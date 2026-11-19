@@ -1,0 +1,8 @@
+a:/code/app.cpp
+-std:c++17
+-EHsc
+-O1
+-nologo
+-GR-
+-I a:/vend/include
+-link -libpath:a:/vend/lib -incremental:no -subsystem:windows app.res -out:app.exe

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -o errexit
+
+rm --recursive --force /a/void/build
+mkdir --parents        /a/void/build
+cd                     /a/void/build
+
+clang -Wall -Wextra -Os -nostdlib -ffreestanding -lkernel32 --output main.exe /a/code/main.cpp

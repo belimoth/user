@@ -1,0 +1,3 @@
+#!/bin/bash
+
+minc run code/main.mc

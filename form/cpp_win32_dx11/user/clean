@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -o errexit
+
+rm --recursive --force /a/void
+mkdir /a/void
+touch /a/void/.gitkeep
