@@ -44,8 +44,3 @@ function sync {
 function size {
 	skip
 }
-
-function view {
-	# todo list possible commands without params, or show a command in its location
-	skip
-}

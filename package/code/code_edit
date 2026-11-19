@@ -2,7 +2,7 @@
 
 # code_edit <slug>
 
-local -; set -o errexit
+set -o errexit
 
 [[ -z $1 ]] && err
 
